@@ -1,0 +1,17 @@
+def heartbeat(speed)
+   use_synth :name_of_synth
+   play 60
+   sleep speed
+end
+
+
+
+distance calc
+
+store the location of the treasure chest L
+continually store the location of the player P
+
+Distance = L - P
+
+if Distance == 0
+post to chat "YOU FOUND IT!!!"
