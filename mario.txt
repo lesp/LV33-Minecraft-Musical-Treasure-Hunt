@@ -1,0 +1,17 @@
+2.times do
+  use_synth :hoover
+  play :e, release: 0.1
+  sleep 0.2
+  play :e, release: 0.1
+  sleep 0.2
+  play :e, release: 0.1
+  sleep 0.2
+  play :c, release: 0.1
+  sleep 0.4
+  play :e, release: 0.1
+  sleep 0.4
+  play :g, release: 0.1
+  sleep 0.6
+  play :g, release: 0.1
+  sleep 0.2
+end

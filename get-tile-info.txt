@@ -1,0 +1,8 @@
+# Welcome to Sonic Pi v2.10
+
+loop do
+  position = mc_get_tile
+  blocky = mc_get_block(position[0],position[1]-1,position[2])
+  mc_chat_post(blocky)
+  sleep 0.5
+end

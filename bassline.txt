@@ -1,0 +1,7 @@
+# Welcome to Sonic Pi v2.10
+delay = 0.1
+live_loop :heartbeat do
+  use_synth :chipbass
+  play 60
+  sleep delay
+end

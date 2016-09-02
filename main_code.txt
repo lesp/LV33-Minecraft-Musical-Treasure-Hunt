@@ -1,0 +1,20 @@
+treasure = [rand_i(100),rand_i(20),rand_i(100)]
+mc_set_area(:air,-255,-255,-255,255,255,255)
+mc_set_area(:stone,0,0,0,255,0,255)
+mc_set_area(:bedrock, 10,3,10,15,3,15)
+mc_set_area(:glowing_obsidian, 5,1,5,9,1,9)
+mc_set_area(:nether_reactor_core, 6,2,6,8,2,8)
+mc_teleport(rand_i(50),rand_i(50),rand_i(50))
+mc_set_block(:chest, treasure[0], treasure[1], treasure[2])
+mc_chat_post("You can find the Treasure chest at...")
+mc_chat_post(treasure)
+loop do
+  if mc_block_name == "glowing_obsidian"
+    delay = 0.1
+    use_synth :chipbass
+    play 60
+    sleep delay
+  else
+    mc_chat_post("Go for a walk on Obsidian")
+  end
+end
