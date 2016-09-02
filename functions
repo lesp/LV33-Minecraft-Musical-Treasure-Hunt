@@ -14,4 +14,47 @@ continually store the location of the player P
 Distance = L - P
 
 if Distance == 0
-post to chat "YOU FOUND IT!!!"
+  post to chat "YOU FOUND IT!!!"
+  2.times do
+    play a tune like winning in mario games
+else if Distance > 1 and < 10
+  post to chat "Getting HOT"
+  heartbeat(fast)
+else if Distance > 10 and < 20
+  post to chat "WARMER"
+  hearbeat(moderate)
+else if Distance > 20 and < 40
+  post to chat "WARM"
+  hearbeat(moderate)
+else
+ post to chat "Can you find the treasure?"
+ sleep 1
+
+
+ STRUCTURE
+
+ Create functions for music?
+ Variables that are created once
+ Main loop
+   Distance = L - P
+   if Distance == 0
+     post to chat "YOU FOUND IT!!!"
+     2.times do
+       play a tune like winning in mario games
+   else if Distance > 1 and < 10
+     post to chat "Getting HOT"
+     heartbeat(fast)
+   else if Distance > 10 and < 20
+     post to chat "WARMER"
+     hearbeat(moderate)
+   else if Distance > 20 and < 40
+     post to chat "WARM"
+     hearbeat(moderate)
+   else if touching nether core
+     PLAY A TUNE
+   else if touching stone
+     PLAY A TUNE
+   else
+     post to chat "Can you find the treasure?"
+     sleep 1
+
