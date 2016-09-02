@@ -1,0 +1,10 @@
+# Welcome to Sonic Pi v2.10
+loop do
+  player = mc_get_tile
+  surface = mc_get_block(player[0],player[1]-1,player[2])
+  mc_chat_post(surface)
+  if surface == :grass
+    mc_chat_post("Get orf the grass")
+    sleep 1
+  end
+end
