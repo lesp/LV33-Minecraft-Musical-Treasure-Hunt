@@ -1,0 +1,55 @@
+rand_skip(5)
+treasureX = rand_i(120)
+treasureZ = rand_i(120)
+puts treasureX,treasureZ
+rand_skip(12)
+teleX = rand_i(100)
+teleY = rand_i(50)
+teleZ = rand_i(100)
+mc_set_area(:air,treasureX,0,treasureZ,treasureX+3,100,treasureZ+3)
+puts "Empty space created"
+mc_set_area(:diamond_block,treasureX,0,treasureZ,treasureX+2,1,treasureZ+2)
+mc_set_block(:chest,treasureX+1,2,treasureZ+1)
+puts "Chest deployed"
+mc_surface_teleport(teleX,teleZ)
+mc_chat_post("You need to find two locations on the map")
+mc_chat_post("Each location will reveal part of the final")
+mc_chat_post("treasure to be found")
+mc_chat_post("Good luck!")
+#First marker
+mc_set_block(:furnace_active, 109,0,-30)
+mc_set_block(:diamond_block, 109,-1,-29)
+live_loop :blinky do
+  mc_set_area(:glowing_obsidian,109,1,-30,109,10,-30)
+  sleep 1
+  mc_set_area(:gold_block,109,1,-30,109,10,-30)
+  sleep 1
+end
+#Second marker
+mc_set_block(:furnace_active, -11,4,-74)
+mc_set_block(:diamond_block, -11,3,-75)
+live_loop :anotherblinky do
+  mc_set_area(:glowing_obsidian,-11,5,-74,-11,15,-74)
+  sleep 1
+  mc_set_area(:gold_block,-11,5,-74,-11,15,-74)
+  sleep 1
+end
+live_loop :get_position do
+  position = mc_get_tile
+  puts position
+  sleep 0.5
+  if position == [109,0,-29]
+    puts "Marker 1 found"
+    mc_chat_post("Congratulations adventurer")
+    mc_chat_post("You have found the X co-ordinate marker")
+    mc_chat_post("The X co-ordinate is....")
+    mc_chat_post(treasureX)
+  else if position == [-11,4,-75]
+    puts "Marker 2 found"
+    mc_chat_post("Congratulations adventurer")
+    mc_chat_post("You have found the Z co-ordinate marker")
+    mc_chat_post("The Z co-ordinate is....")
+    mc_chat_post(treasureZ)
+  end
+end
+end
